@@ -177,7 +177,7 @@ console.log(result.confidence); // 0.82
 | **Platform Coverage** | YouTube, Instagram, Manual Input | All major platforms |
 
 ## 🏗️ Project Structure
-
+<p>
 watchdog-detection-system/
 ├── frontend/
 │ ├── src/
@@ -199,7 +199,7 @@ watchdog-detection-system/
 │ └── training/ # Model training scripts
 ├── docs/ # Documentation
 └── tests/ # Test files
-
+</p>
 ## 👥 Development Team
 
 **🎓 Capstone Project Team - Thapar Institute of Engineering & Technology**
