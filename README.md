@@ -174,7 +174,7 @@ console.log(result.confidence); // 0.82
 | **Processing Speed** | 1.2s average | <1.0s |
 | **Languages Supported** | 5 (Hindi, Punjabi, English, Hinglish, Other) | 8+ |
 | **Concurrent Users** | 100+ | 500+ |
-| **Platform Coverage** | YouTube, Instagram, Manual Input | All major platforms |
+| **Platform Coverage** | YouTube, Instagram, Manual Input |All major platforms|
 
 ## 🏗️ Project Structure
 <p>
