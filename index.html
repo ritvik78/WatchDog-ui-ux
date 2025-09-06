@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WATCHDOG - Verbal Abuse Detection System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+</head>
+<body>
+    <!-- Registration Modal -->
+    <div class="modal hidden" id="registrationModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Account</h3>
+                <button class="modal-close" id="closeRegistrationModal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <form class="modal-body" id="registrationForm">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="regName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-control" id="regUsername" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="regEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" id="regPassword" placeholder="Choose a password" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="regConfirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agreeTerms" required>
+                        I agree to the Terms of Service and Privacy Policy
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn--outline" id="cancelRegistration">Cancel</button>
+                    <button type="submit" class="btn btn--primary">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div class="login-container active" id="loginPage">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="14" fill="url(#logoGradient)" stroke="#fff" stroke-width="2"/>
+                        <path d="M12 14h8M12 18h6M10 10h12v12H10z" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea"/>
+                                <stop offset="100%" style="stop-color:#764ba2"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h1>WATCHDOG</h1>
+                </div>
+                <p class="login-subtitle">Advanced Verbal Abuse Detection System</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Email / Username</label>
+                    <input type="text" class="form-control" id="loginEmail" placeholder="Enter your email or username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe">
+                        Remember me
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn--primary btn--full-width">Sign In</button>
+                
+                <div class="login-links">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <span>•</span>
+                    <a href="#" class="sign-up-link" id="showRegistration">Create Account</a>
+                </div>
+                
+                <div class="demo-credentials">
+                    <p><strong>Demo Credentials:</strong></p>
+                    <p>User: john@example.com / password123</p>
+                    <p>Admin: admin@watchdog.com / admin123</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div class="app-container hidden" id="appContainer">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-container">
+                <div class="logo-section">
+                    <div class="logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="14" fill="url(#logoGradient2)" stroke="#fff" stroke-width="2"/>
+                            <path d="M12 14h8M12 18h6M10 10h12v12H10z" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea"/>
+                                    <stop offset="100%" style="stop-color:#764ba2"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="logo-text">WATCHDOG</span>
+                    </div>
+                    <div class="status-indicator">
+                        <div class="status-dot active"></div>
+                        <span class="status-text">System Active</span>
+                    </div>
+                </div>
+
+                <nav class="navigation">
+                    <button class="nav-btn active" data-tab="dashboard">
+                        <i data-lucide="layout-dashboard"></i>
+                        Dashboard
+                    </button>
+                    <button class="nav-btn" data-tab="analysis">
+                        <i data-lucide="search"></i>
+                        Live Analysis
+                    </button>
+                    <button class="nav-btn" data-tab="detections">
+                        <i data-lucide="shield-alert"></i>
+                        Detections
+                    </button>
+                    <button class="nav-btn user-only" data-tab="profile">
+                        <i data-lucide="user"></i>
+                        Profile
+                    </button>
+                    <button class="nav-btn admin-only hidden" data-tab="admin">
+                        <i data-lucide="users"></i>
+                        Admin Panel
+                    </button>
+                    <button class="nav-btn" data-tab="settings">
+                        <i data-lucide="settings"></i>
+                        Settings
+                    </button>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <div class="user-profile" id="userProfileHeader">
+                        <div class="user-avatar" id="userAvatar">JD</div>
+                        <span class="user-name" id="userName">John Doe</span>
+                        <button class="logout-btn" id="logoutBtn">
+                            <i data-lucide="log-out"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section class="tab-content active" id="dashboard">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Advanced Verbal Abuse Detection</h1>
+                        <p class="hero-subtitle">Protecting digital spaces with AI-powered content moderation for Hindi, Punjabi, and Indic languages</p>
+                        <div class="hero-features">
+                            <span class="feature-tag">Real-time Analysis</span>
+                            <span class="feature-tag">Cultural Context Aware</span>
+                            <span class="feature-tag">Multi-platform Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon detection">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value" data-target="28">0</h3>
+                            <p class="stat-label">Total Detections</p>
+                            <span class="stat-trend positive">+15% this week</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon accuracy">
+                            <i data-lucide="target"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value"><span data-target="78">0</span>%</h3>
+                            <p class="stat-label">Model Accuracy</p>
+                            <span class="stat-trend positive">+3% improved</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon languages">
+                            <i data-lucide="globe"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value" data-target="5">0</h3>
+                            <p class="stat-label">Languages Supported</p>
+                            <span class="stat-description">Hindi, Punjabi, English, Hinglish</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon speed">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value">1.2s</h3>
+                            <p class="stat-label">Processing Speed</p>
+                            <span class="stat-trend positive">Ultra-fast analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <div class="section-header">
+                        <h2>Recent Detections</h2>
+                        <button class="btn btn--outline btn--sm" data-tab="detections">View All</button>
+                    </div>
+                    <div class="activity-table">
+                        <div class="table-header">
+                            <div class="table-cell">Content</div>
+                            <div class="table-cell">Translation</div>
+                            <div class="table-cell">Confidence</div>
+                            <div class="table-cell">Severity</div>
+                            <div class="table-cell">Platform</div>
+                            <div class="table-cell">Language</div>
+                        </div>
+                        <div class="table-body" id="recentDetectionsTable">
+                            <!-- Recent detections will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Section at Bottom -->
+                <div class="team-section">
+                    <div class="team-header">
+                        <h2>Meet Our Team</h2>
+                        <p>The brilliant minds behind WATCHDOG's advanced abuse detection technology</p>
+                    </div>
+                    
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Udayan Raj">
+                            </div>
+                            <div class="team-content">
+                                <h3>Udayan Raj</h3>
+                                <p class="team-role">Technical Lead & ML Engineer</p>
+                                <p class="team-id">102203869</p>
+                                <p class="team-description">Specializes in machine learning model development and multimodal analysis</p>
+                                <div class="team-links">
+                                    <a href="https://github.com/udayanraj" target="_blank" class="team-link">
+                                        <i data-lucide="github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/in/udayanraj" target="_blank" class="team-link">
+                                        <i data-lucide="linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b123?w=150&h=150&fit=crop&crop=face" alt="Bhawanjali">
+                            </div>
+                            <div class="team-content">
+                                <h3>Bhawanjali</h3>
+                                <p class="team-role">Performance Engineer & Frontend Developer</p>
+                                <p class="team-id">102203870</p>
+                                <p class="team-description">Focuses on user experience design and frontend implementation</p>
+                                <div class="team-links">
+                                    <a href="https://github.com/bhawanjali" target="_blank" class="team-link">
+                                        <i data-lucide="github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/in/bhawanjali" target="_blank" class="team-link">
+                                        <i data-lucide="linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" alt="Megha">
+                            </div>
+                            <div class="team-content">
+                                <h3>Megha</h3>
+                                <p class="team-role">Data Scientist & Cultural Context Specialist</p>
+                                <p class="team-id">102203874</p>
+                                <p class="team-description">Expert in cultural context analysis and dataset development</p>
+                                <div class="team-links">
+                                    <a href="https://github.com/megha874" target="_blank" class="team-link">
+                                        <i data-lucide="github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/in/megha874" target="_blank" class="team-link">
+                                        <i data-lucide="linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Rithik Verma">
+                            </div>
+                            <div class="team-content">
+                                <h3>Rithik Verma</h3>
+                                <p class="team-role">System Architect & UI/UX Designer</p>
+                                <p class="team-id">102399003</p>
+                                <p class="team-description">Handles system architecture and performance optimization</p>
+                                <div class="team-links">
+                                    <a href="https://github.com/rithikverma" target="_blank" class="team-link">
+                                        <i data-lucide="github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/in/rithikverma" target="_blank" class="team-link">
+                                        <i data-lucide="linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Analysis Section -->
+            <section class="tab-content" id="analysis">
+                <div class="analysis-header">
+                    <h2>Live Content Analysis</h2>
+                    <p>Analyze content in real-time for potential verbal abuse with cultural context</p>
+                </div>
+
+                <div class="analysis-tabs">
+                    <button class="analysis-tab active" data-analysis="text">
+                        <i data-lucide="type"></i>
+                        Text Analysis
+                    </button>
+                    <button class="analysis-tab" data-analysis="audio">
+                        <i data-lucide="mic"></i>
+                        Audio Analysis
+                    </button>
+                    <button class="analysis-tab" data-analysis="url">
+                        <i data-lucide="link"></i>
+                        URL Analysis
+                    </button>
+                </div>
+
+                <div class="analysis-content">
+                    <!-- Text Analysis -->
+                    <div class="analysis-panel active" id="text-analysis">
+                        <div class="analysis-form">
+                            <div class="form-group">
+                                <label class="form-label">Language</label>
+                                <select class="form-control" id="textLanguage">
+                                    <option value="auto">Auto-detect</option>
+                                    <option value="hindi">Hindi</option>
+                                    <option value="punjabi">Punjabi</option>
+                                    <option value="english">English</option>
+                                    <option value="hinglish">Hinglish (Mixed)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Text Content</label>
+                                <textarea class="form-control" id="textInput" rows="6" placeholder="Enter text to analyze for verbal abuse..."></textarea>
+                            </div>
+                            <button class="btn btn--primary" id="analyzeText">
+                                <i data-lucide="search"></i>
+                                Analyze Text
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Audio Analysis -->
+                    <div class="analysis-panel" id="audio-analysis">
+                        <div class="analysis-form">
+                            <div class="audio-upload">
+                                <div class="upload-area" id="audioUpload">
+                                    <i data-lucide="mic"></i>
+                                    <h3>Upload Audio File</h3>
+                                    <p>Drag and drop or click to select audio file (MP3, WAV, M4A)</p>
+                                    <input type="file" accept="audio/*" hidden id="audioFile">
+                                </div>
+                            </div>
+                            <button class="btn btn--primary" id="analyzeAudio" disabled>
+                                <i data-lucide="play"></i>
+                                Analyze Audio
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Analysis -->
+                    <div class="analysis-panel" id="url-analysis">
+                        <div class="analysis-form">
+                            <div class="form-group">
+                                <label class="form-label">Platform</label>
+                                <select class="form-control" id="urlPlatform">
+                                    <option value="youtube">YouTube</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="twitter">Twitter/X</option>
+                                    <option value="facebook">Facebook</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">URL or Content ID</label>
+                                <input type="url" class="form-control" id="urlInput" placeholder="https://youtube.com/watch?v=...">
+                            </div>
+                            <button class="btn btn--primary" id="analyzeUrl">
+                                <i data-lucide="external-link"></i>
+                                Analyze URL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Results -->
+                <div class="analysis-results hidden" id="analysisResults">
+                    <div class="results-header">
+                        <h3>Analysis Results</h3>
+                        <div class="confidence-meter">
+                            <span class="confidence-label">Confidence Score</span>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                            </div>
+                            <span class="confidence-value" id="confidenceValue">0%</span>
+                        </div>
+                    </div>
+                    <div class="results-content" id="resultsContent">
+                        <!-- Results will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detections Management Section -->
+            <section class="tab-content" id="detections">
+                <div class="detections-header">
+                    <h2>Detection Management</h2>
+                    <div class="detection-filters">
+                        <select class="form-control" id="statusFilter">
+                            <option value="all">All Status</option>
+                            <option value="flagged">Flagged</option>
+                            <option value="safe">Reviewed - Safe</option>
+                        </select>
+                        <select class="form-control" id="platformFilter">
+                            <option value="all">All Platforms</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="manual">Manual Input</option>
+                        </select>
+                        <select class="form-control" id="severityFilter">
+                            <option value="all">All Severity</option>
+                            <option value="mild">Mild</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="severe">Severe</option>
+                        </select>
+                        <input type="search" class="form-control" id="searchDetections" placeholder="Search detections...">
+                    </div>
+                </div>
+
+                <div class="detections-table">
+                    <div class="table-header">
+                        <div class="table-cell">
+                            <input type="checkbox" id="selectAll">
+                        </div>
+                        <div class="table-cell">Content</div>
+                        <div class="table-cell">Translation</div>
+                        <div class="table-cell">Severity</div>
+                        <div class="table-cell">Confidence</div>
+                        <div class="table-cell">Status</div>
+                        <div class="table-cell">Platform</div>
+                        <div class="table-cell">Language</div>
+                        <div class="table-cell">Cultural Context</div>
+                        <div class="table-cell">Date</div>
+                        <div class="table-cell">Actions</div>
+                    </div>
+                    <div class="table-body" id="detectionsTableBody">
+                        <!-- Detections will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="bulk-actions">
+                    <button class="btn btn--outline" id="bulkApprove">Mark as Safe</button>
+                    <button class="btn btn--outline" id="bulkFlag">Flag as Abusive</button>
+                    <button class="btn btn--primary" id="exportData">
+                        <i data-lucide="download"></i>
+                        Export Data
+                    </button>
+                </div>
+            </section>
+
+            <!-- User Profile Section -->
+            <section class="tab-content" id="profile">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-avatar-section">
+                            <div class="profile-avatar large" id="profileAvatar">JD</div>
+                            <button class="btn btn--outline btn--sm">Change Photo</button>
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="profileName">John Doe</h2>
+                            <p class="profile-role" id="profileRole">User</p>
+                            <p class="profile-email" id="profileEmail">john@example.com</p>
+                            <p class="profile-joined">Member since: <span id="profileJoinDate">Dec 1, 2024</span></p>
+                        </div>
+                    </div>
+
+                    <div class="profile-grid">
+                        <div class="profile-card">
+                            <h3>Personal Information</h3>
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="editName" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="editEmail" placeholder="Enter your email">
+                            </div>
+                            <button class="btn btn--primary" id="updateProfile">Update Information</button>
+                        </div>
+
+                        <div class="profile-card">
+                            <h3>Activity Summary</h3>
+                            <div class="activity-stats">
+                                <div class="activity-stat">
+                                    <div class="activity-number" id="userDetections">0</div>
+                                    <div class="activity-label">Total Detections</div>
+                                </div>
+                                <div class="activity-stat">
+                                    <div class="activity-number" id="userAnalyses">0</div>
+                                    <div class="activity-label">Analyses Run</div>
+                                </div>
+                                <div class="activity-stat">
+                                    <div class="activity-number" id="userJoinDays">0</div>
+                                    <div class="activity-label">Days Active</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-card">
+                            <h3>Language Preferences</h3>
+                            <div class="form-group">
+                                <label class="form-label">Primary Language</label>
+                                <select class="form-control" id="primaryLanguage">
+                                    <option value="english">English</option>
+                                    <option value="hindi">Hindi</option>
+                                    <option value="punjabi">Punjabi</option>
+                                </select>
+                            </div>
+                            <div class="preference-group">
+                                <label class="toggle-label">
+                                    <span>Show Translations</span>
+                                    <input type="checkbox" id="showTranslations" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <label class="toggle-label">
+                                    <span>Cultural Context</span>
+                                    <input type="checkbox" id="culturalContext" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <label class="toggle-label">
+                                    <span>Email Notifications</span>
+                                    <input type="checkbox" id="emailNotifications">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="profile-card">
+                            <h3>Security</h3>
+                            <div class="form-group">
+                                <label class="form-label">Current Password</label>
+                                <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">New Password</label>
+                                <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
+                            </div>
+                            <button class="btn btn--primary" id="changePassword">Change Password</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Panel Section -->
+            <section class="tab-content" id="admin">
+                <div class="admin-header">
+                    <h2>Admin Dashboard - User Database Management</h2>
+                    <div class="admin-stats">
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-number" id="totalUsers">0</div>
+                            <div class="admin-stat-label">Total Users</div>
+                        </div>
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-number" id="activeUsers">0</div>
+                            <div class="admin-stat-label">Active Users</div>
+                        </div>
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-number" id="totalAnalyses">0</div>
+                            <div class="admin-stat-label">Total Analyses</div>
+                        </div>
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-number" id="abusiveDetections">0</div>
+                            <div class="admin-stat-label">Abusive Content</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-controls">
+                    <div class="admin-filters">
+                        <input type="search" class="form-control" id="adminSearch" placeholder="Search users...">
+                        <select class="form-control" id="roleFilter">
+                            <option value="all">All Roles</option>
+                            <option value="user">Users</option>
+                            <option value="admin">Admins</option>
+                        </select>
+                        <select class="form-control" id="activityFilter">
+                            <option value="all">All Activity</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                        <button class="btn btn--primary" id="exportUserData">
+                            <i data-lucide="download"></i>
+                            Export User Database
+                        </button>
+                        <button class="btn btn--outline" id="exportDetailedData">
+                            <i data-lucide="file-spreadsheet"></i>
+                            Export Detailed Activity
+                        </button>
+                    </div>
+                </div>
+
+                <div class="admin-table">
+                    <div class="admin-table-header">
+                        <div class="admin-table-cell">User Info</div>
+                        <div class="admin-table-cell">Search Queries</div>
+                        <div class="admin-table-cell">Platform Usage</div>
+                        <div class="admin-table-cell">Detections</div>
+                        <div class="admin-table-cell">Languages</div>
+                        <div class="admin-table-cell">Abusive Content</div>
+                        <div class="admin-table-cell">Last Activity</div>
+                        <div class="admin-table-cell">Actions</div>
+                    </div>
+                    <div class="admin-table-body" id="adminTableBody">
+                        <!-- User data will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="admin-activity-log">
+                    <div class="section-header">
+                        <h3>Recent User Activities</h3>
+                        <button class="btn btn--outline btn--sm" id="refreshActivityLog">
+                            <i data-lucide="refresh-cw"></i>
+                            Refresh
+                        </button>
+                    </div>
+                    <div class="activity-log-table">
+                        <div class="log-table-header">
+                            <div class="log-table-cell">User</div>
+                            <div class="log-table-cell">Activity</div>
+                            <div class="log-table-cell">Content Analyzed</div>
+                            <div class="log-table-cell">Translation</div>
+                            <div class="log-table-cell">Platform</div>
+                            <div class="log-table-cell">Result</div>
+                            <div class="log-table-cell">Language</div>
+                            <div class="log-table-cell">Timestamp</div>
+                        </div>
+                        <div class="log-table-body" id="activityLogBody">
+                            <!-- Activity logs will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="tab-content" id="settings">
+                <div class="settings-container">
+                    <h2>System Settings</h2>
+                    
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>Detection Sensitivity</h3>
+                            <div class="sensitivity-control">
+                                <label>Sensitivity Level</label>
+                                <input type="range" class="sensitivity-slider" id="sensitivitySlider" min="1" max="10" value="7">
+                                <div class="sensitivity-labels">
+                                    <span>Low</span>
+                                    <span>Medium</span>
+                                    <span>High</span>
+                                </div>
+                                <p class="sensitivity-description">Current: High sensitivity - More likely to flag borderline content</p>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Language Preferences</h3>
+                            <div class="language-settings">
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Hindi
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Punjabi
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> English
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Mixed Languages (Hinglish)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Cultural Context Settings</h3>
+                            <div class="cultural-settings">
+                                <label class="toggle-label">
+                                    <span>Show cultural explanations</span>
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <label class="toggle-label">
+                                    <span>Include historical context</span>
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <label class="toggle-label">
+                                    <span>Regional variations</span>
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Notification Settings</h3>
+                            <div class="notification-settings">
+                                <label class="toggle-label">
+                                    <span>Real-time alerts</span>
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <label class="toggle-label">
+                                    <span>Email notifications</span>
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <label class="toggle-label">
+                                    <span>Browser notifications</span>
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-actions">
+                        <button class="btn btn--primary" id="saveSettings">Save Settings</button>
+                        <button class="btn btn--outline" id="resetSettings">Reset to Default</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Analyzing content...</p>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
