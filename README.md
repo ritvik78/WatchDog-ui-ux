@@ -217,7 +217,7 @@ watchdog-detection-system/
 <img src="https://images.unsplash.com/photo-1494790108755-2616b612b123?w=100&h=100&fit=crop&crop=face" width="100px;" alt="Bhawanjali"/><br />
 <b>Bhawanjali</b><br />
 <sub>102203870</sub><br />
-<sub>UI/UX Designer & Frontend Developer</sub><br />
+<sub>Performance Engineer & Frontend Developer</sub><br />
 <a href="https://github.com/bhawanjali">GitHub</a> | <a href="https://linkedin.com/in/bhawanjali">LinkedIn</a>
 </td>
 </tr>
@@ -233,7 +233,7 @@ watchdog-detection-system/
 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" width="100px;" alt="Rithik Verma"/><br />
 <b>Rithik Verma</b><br />
 <sub>102399003</sub><br />
-<sub>System Architect & Performance Engineer</sub><br />
+<sub>System Architect & UI/UX Designer</sub><br />
 <a href="https://github.com/rithikverma">GitHub</a> | <a href="https://linkedin.com/in/rithikverma">LinkedIn</a>
 </td>
 </tr>
