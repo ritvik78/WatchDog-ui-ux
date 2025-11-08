@@ -214,7 +214,7 @@ watchdog-detection-system/
 <a href="https://github.com/udayanraj">GitHub</a> | <a href="https://linkedin.com/in/udayanraj">LinkedIn</a>
 </td>
 <td align="center">
-<img src="https://images.unsplash.com/photo-1494790108755-2616b612b123?w=100&h=100&fit=crop&crop=face" width="100px;" alt="Bhawanjali"/><br />
+<img src="Assets/bhawanjali.jpg" width="100px;" alt="Bhawanjali"/><br />
 <b>Bhawanjali</b><br />
 <sub>102203870</sub><br />
 <sub>Performance Engineer & Frontend Developer</sub><br />
@@ -223,7 +223,7 @@ watchdog-detection-system/
 </tr>
 <tr>
 <td align="center">
-<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" width="100px;" alt="Megha"/><br />
+<img src="Assets/megha.jpg" width="100px;" alt="Megha"/><br />
 <b>Megha</b><br />
 <sub>102203874</sub><br />
 <sub>Data Scientist & Cultural Context Specialist</sub><br />
