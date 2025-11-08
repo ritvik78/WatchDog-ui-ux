@@ -48,7 +48,7 @@ Current content moderation systems demonstrate significant limitations when deal
 
 🔗 [Visit the Website](https://ritvik78.github.io/WatchDog-ui-ux/)
 
----
+
 
 ## 🛠️ Technology Stack
 
