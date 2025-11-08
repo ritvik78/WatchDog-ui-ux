@@ -207,11 +207,11 @@ watchdog-detection-system/
 <table>
 <tr>
 <td align="center">
-<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" width="100px;" alt="Udayan Raj"/><br />
+<img src="Assets/udayan raj.jpeg" width="100px;" alt="Udayan Raj"/><br />
 <b>Udayan Raj</b><br />
 <sub>102203869</sub><br />
 <sub>Technical Lead & ML Engineer</sub><br />
-<a href="https://github.com/udayanraj">GitHub</a> | <a href="https://linkedin.com/in/udayanraj">LinkedIn</a>
+<a href="https://github.com/udayanraj">GitHub</a> | <a href="https://www.linkedin.com/in/udayan-raj/">LinkedIn</a>
 </td>
 <td align="center">
 <img src="Assets/bhawanjali.jpg" width="100px;" alt="Bhawanjali"/><br />
