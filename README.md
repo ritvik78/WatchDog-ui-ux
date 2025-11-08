@@ -230,7 +230,7 @@ watchdog-detection-system/
 <a href="https://github.com/megha874">GitHub</a> | <a href="https://linkedin.com/in/megha874">LinkedIn</a>
 </td>
 <td align="center">
-<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" width="100px;" alt="Rithik Verma"/><br />
+<img src="Assets/Rithik.png" width="100px;" alt="Rithik Verma"/><br />
 <b>Rithik Verma</b><br />
 <sub>102399003</sub><br />
 <sub>System Architect & UI/UX Designer</sub><br />
