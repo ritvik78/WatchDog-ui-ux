@@ -77,53 +77,6 @@ Docker # Containerization for deployment
 ESLint & Prettier # Code quality and formatting
 Jest # Testing framework
 
-## 🚀 Installation & Setup
-
-### Prerequisites
-Node.js 16.0 or higher
-Python 3.8 or higher
-MongoDB (local or cloud)
-Git
-
-### 1. Clone the Repository
-git clone https://github.com/your-team/watchdog-detection-system.git
-cd watchdog-detection-system
-
-### 2. Install Dependencies
-Install frontend dependencies
-npm install
-
-Install backend dependencies
-cd backend
-pip install -r requirements.txt
-cd ..
-
-### 3. Environment Configuration
-Copy environment template
-cp .env.example .env
-
-Edit .env with your configuration
-Add MongoDB connection string, API keys, etc
-
-### 4. Database Setup
-Start MongoDB (if running locally)
-mongod
-
-Initialize database collections
-npm run db:init
-
-### 5. Start the Application
-Development mode (runs both frontend and backend)
-npm run dev
-
-Or run separately
-npm run start:frontend # Frontend on port 3000
-npm run start:backend # Backend on port 5000
-
-### 6. Access the Application
-Frontend: http://localhost:3000
-Backend API: http://localhost:5000/api
-
 ## 🔐 Default Login Credentials
 
 👤 User Account:
