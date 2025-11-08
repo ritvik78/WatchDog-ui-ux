@@ -365,10 +365,6 @@ copies or substantial portions of the Software.
 - 📍 **Location**: Patiala, Punjab, India
 - 🌐 **Website**: [thapar.edu](https://thapar.edu)
 
----
-
-
-</div>
 
 ---
 
