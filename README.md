@@ -349,7 +349,6 @@ We welcome contributions from the community! Here's how you can help:
 - 🌐 **Website**: [thapar.edu](https://thapar.edu)
 
 
----
 
 ## 📋 Quick Start Checklist
 
