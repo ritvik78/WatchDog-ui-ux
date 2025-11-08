@@ -44,6 +44,12 @@ Current content moderation systems demonstrate significant limitations when deal
 - **Platform Usage Statistics**: Detailed monitoring across YouTube, Instagram, Manual Input
 - **Detection History**: Comprehensive logging with translations and cultural context
 
+## 🌐 Live Site
+
+🔗 [Visit the Website](https://ritvik78.github.io/WatchDog-ui-ux/)
+
+---
+
 ## 🛠️ Technology Stack
 
 ### **Frontend**
