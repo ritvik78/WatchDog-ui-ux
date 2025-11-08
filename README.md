@@ -227,14 +227,14 @@ watchdog-detection-system/
 <b>Megha</b><br />
 <sub>102203874</sub><br />
 <sub>Data Scientist & Cultural Context Specialist</sub><br />
-<a href="https://github.com/megha874">GitHub</a> | <a href="https://linkedin.com/in/megha874">LinkedIn</a>
+<a href="https://github.com/meghab1230">GitHub</a> | <a href="https://www.linkedin.com/in/megha-b95453280/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">LinkedIn</a>
 </td>
 <td align="center">
 <img src="Assets/Rithik.png" width="100px;" alt="Rithik Verma"/><br />
 <b>Rithik Verma</b><br />
 <sub>102399003</sub><br />
 <sub>System Architect & UI/UX Designer</sub><br />
-<a href="https://github.com/rithikverma">GitHub</a> | <a href="https://linkedin.com/in/rithikverma">LinkedIn</a>
+<a href="https://github.com/ritvik78">GitHub</a> | <a href="https://www.linkedin.com/in/rithik-verma-74592226a/">LinkedIn</a>
 </td>
 </tr>
 </table>
