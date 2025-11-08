@@ -367,22 +367,6 @@ copies or substantial portions of the Software.
 
 ---
 
-<div align="center">
-
-### 🏆 Academic Excellence
-
-**Mid-Semester Evaluation 2025** | **Computer Science & Engineering Department**  
-**Thapar Institute of Engineering and Technology, Patiala**
-
-![Project Status](https://img.shields.io/badge/Status-Active%20Development-green)
-![Production Ready](https://img.shields.io/badge/Production-Ready-blue)
-![Scalable Architecture](https://img.shields.io/badge/Architecture-Scalable-orange)
-
----
-
-*🛡️ Making social media safer and more inclusive for diverse linguistic communities while maintaining cultural sensitivity and freedom of expression.*
-
-**⭐ If you find this project helpful, please consider giving it a star!**
 
 </div>
 
