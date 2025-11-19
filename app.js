@@ -5,19 +5,19 @@ const appData = {
     users: [
         {
             id: 1,
-            username: "john_doe",
-            email: "john@example.com",
-            password: "password123",
+            username: "Rithik100",
+            email: "rock4rithik@gmail.com",
+            password: "rithik123",
             role: "user",
-            name: "John Doe",
-            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+            name: "Rithik Verma",
+            avatar: "Assets/Rithik.png",
             joinDate: "2024-12-01",
             lastLogin: "2025-01-05T10:30:00Z",
             preferences: {
                 language: "English",
                 showTranslations: true,
                 culturalContext: true,
-                sensitivityLevel: "Medium"
+                sensitivityLevel: "High"
             },
             activityCount: 45,
             detectionsCount: 8
@@ -93,7 +93,7 @@ const appData = {
             platform: "YouTube",
             detectedAt: "2025-01-05T10:30:00Z",
             userId: 1,
-            username: "john_doe",
+            username: "Rithik100",
             detectionType: "Explicit"
         },
         {
@@ -138,7 +138,7 @@ const appData = {
             platform: "Instagram", 
             detectedAt: "2025-01-05T07:15:00Z",
             userId: 1,
-            username: "john_doe",
+            username: "Rithik100",
             detectionType: "Hate Speech"
         },
         {
@@ -161,7 +161,7 @@ const appData = {
         {
             id: 1,
             userId: 1,
-            username: "john_doe", 
+            username: "Rithik100", 
             activity: "Text Analysis",
             content: "तू बड़ा बेवकूफ है",
             translation: "You are very foolish/stupid",
@@ -174,7 +174,7 @@ const appData = {
         {
             id: 2,
             userId: 1,
-            username: "john_doe",
+            username: "Rithik100",
             activity: "URL Analysis", 
             content: "https://youtube.com/watch?v=example",
             translation: null,
@@ -213,7 +213,7 @@ const appData = {
         {
             id: 5,
             userId: 1,
-            username: "john_doe",
+            username: "Rithik100",
             activity: "Text Analysis",
             content: "कैसा चूतिया आदमी है",
             translation: "What an idiotic/stupid man", 
