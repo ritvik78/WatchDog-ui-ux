@@ -1,4 +1,4 @@
-# <img src="Assets/logo watchdog.png" width="100px;"> WATCHDOG: AI-Powered Verbal Abuse Detection System
+# <img src="Assets/logo watchdog.png" width="90px;"> WATCHDOG: AI-Powered Verbal Abuse Detection System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-18.0+-blue.svg)](https://reactjs.org/)
