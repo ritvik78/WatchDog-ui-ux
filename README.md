@@ -1,4 +1,4 @@
-<h1 align="center"><img src="Assets/logo watchdog.png" width="200px" align="centre"> </h1>>
+<h1 align="center"><img src="Assets/logo watchdog.png" width="200px" align="centre"></h1>>
 
 # WATCHDOG: AI-Powered Verbal Abuse Detection System
 
